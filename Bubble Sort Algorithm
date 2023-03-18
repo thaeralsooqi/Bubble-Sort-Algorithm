@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+void BubbleSort(int arr[], int size)
+{
+	bool flag = true;
+    int counter=0;
+	for (int i = 0; i < size - 1; i++)//pass
+	{
+		for (int j = 0; j < size - i - 1; j++)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				swap(arr[j], arr[j + 1]);
+				flag = false;
+			}
+			counter++;
+		}
+		if (flag == true)
+			break;
+	}
+	cout << "**Number of round : " << counter << endl;
+}
+void printarr(int arr[], int size)
+{
+	for (int i = 0; i < size; i++)
+		cout << arr[i] << " ";
+	cout << endl;
+}
+int main()
+{
+	int arr[]={ 100,60,20,30,70,80,90};
+	int size = sizeof(arr) / sizeof(arr[0]);//  28/4=7   b7sb al size
+	BubbleSort(arr, size);
+	printarr(arr, size);
+	return 0;
+}
